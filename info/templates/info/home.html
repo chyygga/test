@@ -1,0 +1,19 @@
+{% extends 'info/base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+
+<ul>
+    {% for p in guests %}
+    <li>
+        <h2>{{p.name}}</h2>
+        <p>Эл. почта: {{p.mail}}</p>
+        <p>Производитель ЦП: {{p.CPU_vendor}}</p>
+        <p>Производитель ГПУ: {{p.GPU_vendor}}</p>
+        <hr>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+

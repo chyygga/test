@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+   <title>{{title}}</title>
+   <link type="text/css" href="{% static 'info/css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+{% block mainmenu %}
+<ul>
+</ul>
+{% endblock mainmenu %}
+
+{% block content %}
+{% endblock %}
+</body>
+</html>
