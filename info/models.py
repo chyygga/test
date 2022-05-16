@@ -7,13 +7,13 @@ class Guest(models.Model):
     CPU_vendor = models.ForeignKey('CPU_Vendors', on_delete=models.PROTECT, null=True, verbose_name='Производитель ЦП')
     GPU_vendor = models.ForeignKey('GPU_Vendors', on_delete=models.PROTECT, null=True, verbose_name='Производитель ГПУ')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
-    agree = models.BooleanField(default=True, verbose_name='Подтвердить условия')
+    agree = models.BooleanField(default=False, blank=False, verbose_name='Подтвердить условия')
 
     def __str__(self):
         return self.name
 
     class Meta:
-        ordering = ['time_create', 'name']
+        ordering = ['-time_create', 'name']
 
 class CPU_Vendors(models.Model):
     name = models.CharField(max_length=10)

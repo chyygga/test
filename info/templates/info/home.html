@@ -1,19 +1,24 @@
 {% extends 'info/base.html' %}
 
+{% block title %}{{ title }}{% endblock %}
+
 {% block content %}
-<h1>{{title}}</h1>
+    <div class="features">
+        <h1>Guests</h1>
+        {% if guests %}
+            {% for g in guests %}
+                <div class="alert alert-warning">
+                    <h3>{{ g.name }}</h3>
+                    <p>{{ g.mail }}</p>
+                    <p>{{ g.CPU_vendor }}</p>
+                    <p>{{ g.GPU_vendor }}</p>
+<!--                    <a href="{% url 'guest_info' g.id %}" class="btn btn-warning">Read more</a>-->
+                </div>
+            {% endfor %}
+        {% else %}
+            <p> No content!!! </p>
+        {% endif %}
 
-<ul>
-    {% for p in guests %}
-    <li>
-        <h2>{{p.name}}</h2>
-        <p>Эл. почта: {{p.mail}}</p>
-        <p>Производитель ЦП: {{p.CPU_vendor}}</p>
-        <p>Производитель ГПУ: {{p.GPU_vendor}}</p>
-        <hr>
-    </li>
-    {% endfor %}
-</ul>
-
+        {# Comments #}
+    </div>
 {% endblock %}
-

@@ -20,15 +20,7 @@ class AddGuest(CreateView):
     extra_context = {'title': 'Заполнить форму'}
     success_url = reverse_lazy('home')
 
-# class ShowGuest(DetailView):
-#     model = Guest
-#     template_name = 'info/guest_info.html'
-#     pk_url_kwarg = 'guest_id'
-#     context_object_name = 'guest'
-#     def get_queryset(self):
-#         return Guest.objects.filter(pk=self.pk_url_kwarg)
-#
-#
+
 def guest_info(request, guest_id):
     return HttpResponse(f'Accept user {guest_id}')
 
